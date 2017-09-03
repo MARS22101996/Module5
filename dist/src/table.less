@@ -1,0 +1,50 @@
+@tableHeight: 250px;
+@spinnerSize: 30px;
+
+.table-holder {    
+    .table-box {
+        height: @tableHeight;
+        overflow: auto;
+        margin-bottom: 20px;
+        background: #073642;
+    }
+
+    .spinner {
+        width: @spinnerSize;
+        display: none;
+        position: absolute; 
+        left: 50%;
+        margin-left: -@spinnerSize/2;
+        margin-top: @tableHeight / 2 - @spinnerSize / 2;
+    }
+
+    &.loading {
+        table, .controls {
+            display: none;
+        }
+
+        .spinner {
+            display: block;
+        }
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 15px;
+
+    td {
+        padding: 5px 10px;
+        vertical-align: top;
+        color: #A8B8B9;
+        background: none;
+    }
+
+    th {
+        border: 1px solid #164855;
+        color: #d7e5a1;
+        background: #082C35;
+        padding: 5px 0;
+    }
+}
