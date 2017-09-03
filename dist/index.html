@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Your Website</title>
+<link href="css/main.css" rel="stylesheet"></head>
+
+<body>
+
+    <!--Error box-->
+    <div class="error-box" style="display: block;">
+        <p>Invalid input. Please, insert valid data in the field.</p>
+        <!-- Please for <i class="fa fa-times"></i> use icon font -->
+        <span class="btn-close"><i class="fa fa-times"></i></span>
+    </div>
+
+
+	
+	<section class="box main-wrapper">	
+
+        <header class="page-header box">
+            <h1>Employee</h1>
+        </header>
+        <!-- Switcher -->
+        <form class="switch-form">
+            <input type="checkbox" id="switch" name="switch"/>
+            <label for="switch"><i></i></label>
+            <span class="on">Load by inserted data</span>
+            <span class="off">Load by AJAX</span>
+        </form>
+
+        <!-- Please, press button to load data -->
+
+        <!-- Basic button-->
+        <span id="ajax-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></span>
+        
+        <form class="form">
+            <textarea id="json-input" rows="12"></textarea>
+        </form>
+        <!--Table-->
+        <div id="table-holder">
+        <div class="table-box">
+            <table id="employee-table" class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Average monthly salary</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                    <td>53dba96853f4d99418dbd975</td>
+                    <td>Meghan</td>
+                    <td>2163</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba96822a91b766a063dcf</td>
+                    <td>Suarez</td>
+                    <td>998</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba96843b8e01e426c8219</td>
+                    <td>Bishop</td>
+                    <td>1632</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968e175027ee09006a7</td>
+                    <td>Daniel</td>
+                    <td>962</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968ecda8fd1822c98bf</td>
+                    <td>Penny</td>
+                    <td>1664</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba96844e36c2aed9c0d02</td>
+                    <td>Gamble</td>
+                    <td>2995</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968292c7c19a8bc8200</td>
+                    <td>Acosta</td>
+                    <td>2995</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba96870f60dee14986ff8</td>
+                    <td>Karla</td>
+                    <td>2662</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968a3caf9ac0c8c4c68</td>
+                    <td>Mcfarland</td>
+                    <td>663</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba96891fd185f8592dab6</td>
+                    <td>Cheryl</td>
+                    <td>1230</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968de1294d32f6f1861</td>
+                    <td>Whitley</td>
+                    <td>2662</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968b12fc490c38e2ca0</td>
+                    <td>Isabelle</td>
+                    <td>1799</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968348ce77356acf1f2</td>
+                    <td>Moss</td>
+                    <td>2330</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968ece0ef8beabe0b65</td>
+                    <td>Jeannette</td>
+                    <td>758</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba968247c838cc43d4fc3</td>
+                    <td>Jeanine</td>
+                    <td>866</td>
+                </tr>
+                
+                <tr>
+                    <td>53dba9687a720cb98c567950</td>
+                    <td>Marina</td>
+                    <td>1165</td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+        <footer>
+            <div class="controlls">
+                <span class="btn btn-sort">Sort data</span>
+                <span class="btn btn-get-names">Get first 'n' names</span>
+                <span class="btn btn-get-ids">Get last 'n' ids</span>
+
+                <form class="form-controll">
+                    <span class="btn btn-up">+</span>
+                    <input id="count-input" type="text" value="0"></input>
+                    <span class="btn btn-down">-</span>
+                </form>
+            </div>
+            <span class="annotate rt">* Please, enter quantity ("n" &#8593;) for data you want get.</span> 
+            <!--List-->
+<div class="list-holder"><ul class="list">
+	
+		<li><span>1.</span> Mcfarland</li>
+	
+		<li><span>2.</span> Jeannette</li>
+	
+		<li><span>3.</span> Jeanine</li>
+	
+		<li><span>4.</span> Daniel</li>
+	
+		<li><span>5.</span> Suarez</li>
+	
+</ul></div>
+        </footer>	
+
+    </section>
+
+<script type="text/javascript" src="main.js"></script></body>
+
+</html>
