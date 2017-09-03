@@ -20,7 +20,7 @@ var reload      = browserSync.reload;
  
 /* Task to compile less */
 gulp.task('compile-less', function() {  
-  gulp.src('./src/all.less')
+  gulp.src('./styles/main.less')
     .pipe(less())
     .pipe(gulp.dest('./distro/css/'));
 }); 
