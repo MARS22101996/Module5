@@ -40,12 +40,12 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/.compiled/index.html'
+      template: 'dist/index.html'
     })
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 9000
+    port: 8080
   }
 };

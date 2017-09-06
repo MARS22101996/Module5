@@ -21,15 +21,15 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && gulp check && gulp build && webpack && start webpack-dev-server --open && gulp watch",
-    "watch": "npm install && gulp check && gulp build && webpack && gulp watch",
-    "build": "npm install && gulp check && gulp build && webpack"
+    "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch",
+    "watch": "npm install && gulp detect && gulp compile && webpack && gulp watch",
+    "build": "npm install && gulp detect && gulp compile && webpack"
   },
   "keywords": [
     "employee",
     "cdp",
     "epam"
   ],
-  "author": "Serhii Iordanov",
+  "author": "Mariia Suvalova",
   "license": "ISC"
 }
