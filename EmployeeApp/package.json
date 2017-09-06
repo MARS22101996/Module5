@@ -1,0 +1,35 @@
+{
+  "name": "employeeapp",
+  "version": "1.0.0",
+  "description": "Represents employees",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "file-loader": "^0.11.2",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-lesshint": "^4.0.0",
+    "gulp-rename": "^1.2.2",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.2",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install &&  gulp build && webpack && start webpack-dev-server --open && gulp watch",
+    "watch": "npm install &&  gulp build && webpack && gulp watch",
+    "build": "npm install &&  gulp build && webpack"
+  },
+  "keywords": [
+    "employee",
+    "cdp",
+    "epam"
+  ],
+  "author": "Mariia Suvalova",
+  "license": "ISC"
+}

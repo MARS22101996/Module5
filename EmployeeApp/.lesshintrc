@@ -1,0 +1,11 @@
+{
+    "propertyOrdering": {
+        "enabled": false
+    },
+    "idSelector": {
+        "enabled": false
+    },
+    "qualifyingElement": {
+        "enabled": false
+    }
+}
