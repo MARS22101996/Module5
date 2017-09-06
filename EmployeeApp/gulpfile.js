@@ -12,7 +12,7 @@ var buidStyles = '/css';
 var fonts = '/fonts';
 var images = '/images';
 
-// gulp.task('check', ['lint']);
+gulp.task('check', ['lint']);
 gulp.task('watch', ['less-watcher', 'font-awesome-watcher', 'html-watcher', 'images-watcher', 'lint-watcher']);
 gulp.task('build', ['less', 'font-awesome-styles', 'fonts', 'html', 'images']);
 
@@ -66,16 +66,16 @@ gulp.task('images-watcher', ['images'], function() {
 	gulp.watch([src + images + '/*'], ['images']);
 });
 
-// // Linter
-// gulp.task('lint', () => {
-//     return gulp.src(src + srcStyles + '/*.less')
-//         .pipe(lesshint({
-//             configPath: './.lesshintrc'
-//         }))
-//         .pipe(lesshint.reporter())
-//         .pipe(lesshint.failOnError());
-// });
+// Linter
+gulp.task('lint', () => {
+    return gulp.src(src + srcStyles + '/*.less')
+        .pipe(lesshint({
+            configPath: './.lesshintrc'
+        }))
+        .pipe(lesshint.reporter())
+        .pipe(lesshint.failOnError());
+});
 
-// gulp.task('lint-watcher', ['lint'], function() {
-// 	gulp.watch([src + srcStyles + '/*.less'], ['lint']);
-// });
+gulp.task('lint-watcher', ['lint'], function() {
+	gulp.watch([src + srcStyles + '/*.less'], ['lint']);
+});
