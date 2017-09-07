@@ -1,5 +1,5 @@
 {
-  "name": "employeeapp",
+  "name": "cdp_module5",
   "version": "1.0.0",
   "description": "Represents employees",
   "main": "main.js",
@@ -24,12 +24,5 @@
     "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch",
     "watch": "npm install && gulp detect && gulp compile && webpack && gulp watch",
     "build": "npm install && gulp detect && gulp compile && webpack"
-  },
-  "keywords": [
-    "employee",
-    "cdp",
-    "epam"
-  ],
-  "author": "Mariia Suvalova",
-  "license": "ISC"
+  }
 }
