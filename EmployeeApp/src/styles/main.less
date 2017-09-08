@@ -94,16 +94,19 @@ body {
 	}
 
 	& .btn {
-		float: left;
-		margin: 0 10px;
+		margin: 0 0px;
 	}
 
-.btn-up,
+.btn-up{
+	float: left;
+    width: 5px;
+	font-size: 18px;
+	padding: 0px;
+}
 .btn-down {
-	min-width: 10px;
+	width: 5px;
 	font-size: 18px;
 }
-
 h2 {
 	color: #CB4B16;
 	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
@@ -164,6 +167,7 @@ hr {
     }
 }
 
+//Switcher
 .switch-form input {
     display: none;
 
@@ -206,6 +210,7 @@ hr {
 	color: #859900;
 }
 }
+
 /* Table */
 .table {
 	width: 100%;
@@ -258,6 +263,10 @@ hr {
 }
 /* Error */
 .error-box {
+	position: fixed;
+    top: 10px;
+    left: 4%;
+    right: 4%;
 	border: 2px solid #86151C;
 	padding: 20px 10px 20px;
 	-webkit-border-radius: 4px;

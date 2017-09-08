@@ -29,18 +29,20 @@
 			<label for="switch">
 				<i></i>
 			</label>
-			<span class="on">Load by inserted data</span>
-			<span class="off">Load by AJAX</span>
+			<span class="desc on">Load by inserted data</span>
+			<span class="desc off">Load by AJAX</span>
 		</form>
-
-		<!-- Please, press button to load data -->
-
-		<!-- Basic button-->
-		<span id="ajax-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></span>
-
-		<form id="ajax-form" class="form" action="/index/output">
+		    <p hidden>Please, press button to load the data.</p>
+            <p>
+                Please, insert data in the field then press button.
+                <span class="annotate"><sup>*</sup> The data must be in the JSON format.</span>
+            </p>
+		<!-- Form for data -->
+		<form class="form" action="/index/output">
 			<textarea id="json-input" rows="12"></textarea>
-		</form>
+		</form>		
+		<!-- Basic button-->
+		<div id="ajax-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></div>
 		<!--Table-->
 		<div id="table-holder">
 			<div class="table-box">
