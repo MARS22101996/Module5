@@ -1,7 +1,7 @@
 {
   "name": "cdp_module5",
   "version": "1.0.0",
-  "description": "Represents employees",
+  "description": "task 1",
   "main": "main.js",
   "dependencies": {},
   "devDependencies": {
@@ -20,9 +20,6 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch",
-    "watch": "npm install && gulp detect && gulp compile && webpack && gulp watch",
-    "build": "npm install && gulp detect && gulp compile && webpack"
+    "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch"
   }
 }
