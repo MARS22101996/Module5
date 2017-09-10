@@ -1,5 +1,5 @@
 'use strict';
-import Employee from './employee.js';
+import Employee from './Employee.js';
 
 class PerHourEmployee extends Employee {
     constructor(id, name, salary) {

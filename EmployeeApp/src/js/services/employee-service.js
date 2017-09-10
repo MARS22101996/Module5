@@ -1,7 +1,7 @@
 'use strict';
-import Employee from './../models/employee.js';
-import FixedSalaryEmployee from './../models/fixed-salary-employee.js';
-import PerHourEmployee from './../models/per-hour-employee.js';
+import Employee from './../models/Employee.js';
+import FixedSalaryEmployee from './../models/FixedSalaryEmployee.js';
+import PerHourEmployee from './../models/PerHourEmployee.js';
 import $ from './../libs/jquery.min.js';
 
 class EmployeeService {

@@ -3,11 +3,11 @@
 class Employee {
     constructor(id, name, salary) {
         if (this.constructor === Employee) {
-            throw new TypeError('Abstract class "Employee" cannot be instantiated directly.');
+            throw new TypeError('Can not construct abstract class.');
         }
 
         if (this.getSalary === undefined) {
-            throw new TypeError('"getSalary" should be implemented');
+            throw new TypeError('Must override method salary');
         }
 
         this.id = id;
