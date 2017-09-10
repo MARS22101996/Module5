@@ -6,12 +6,12 @@ import $ from './../libs/jquery.min.js';
 
 class EmployeeService {
     constructor() {
-        let _employees = [];
+         this._employees = []; 
 
         this.setEmployees = function (employees) {
             let isEmployees = privateMethods.isEmployees.call(this, employees);
             if (isEmployees) {
-                _employees = employees;
+               this._employees = employees;
             }
             else {
                 throw new Error('Error: setEmployees. Invalid type passed. Expected:  Employee[]');
@@ -19,12 +19,12 @@ class EmployeeService {
         };
 
         this.getEmployees = function () {
-            return _employees;
+            return this._employees; 
         };
     }
 
     uploadAjax(url) {
-        var validateFunc = privateMethods.validateEmployeesArray.bind(this);
+      
         var setEmployeesFunc = this.setEmployees.bind(this);
 
         var promiseFunc = function (resolve, reject) {
@@ -32,7 +32,7 @@ class EmployeeService {
                 url: url,
                 success: function (data) {
                     try {
-                        validateFunc(data);
+
                         var employees = privateMethods.convertToTypedEmployees(data);
                         setEmployeesFunc(employees);
 
