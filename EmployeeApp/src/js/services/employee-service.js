@@ -7,7 +7,7 @@ import $ from './../libs/jquery.min.js';
 
 class EmployeeService {
     constructor() {
-        
+
           this._employees = new EmployeesCollection();
 
         this.setEmployees = function (employees) {
@@ -62,7 +62,7 @@ class EmployeeService {
             }
 
         } catch(e) {
-            return [];
+             throw new Error('Can not parse data.');
         }
         var employees = privateMethods.convertToTypedEmployees.call(this, parsed);
         
