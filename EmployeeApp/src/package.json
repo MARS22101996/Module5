@@ -20,6 +20,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch"
+    "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch",
+    "build": "npm install && gulp detect && gulp compile && webpack"
   }
 }
