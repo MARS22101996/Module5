@@ -28,14 +28,20 @@ class EmployeeService {
     uploadAjax(url) {
       
         var setEmployeesFunc = this.setEmployees.bind(this);
+        var createEmployeeFunc = this.createEmployee.bind(this);
 
         var promiseFunc = function (resolve, reject) {
             $.ajax({
                 url: url,
                 success: function (data) {
                     try {
+                       
+                         if(!Array.isArray(data)) {
+                               data = [data];     
+                         }
 
-                        var employees = privateMethods.convertToTypedEmployees(data);
+                        var employees =  data.map(createEmployeeFunc); 
+                        
                         setEmployeesFunc(employees);
 
                         setTimeout(resolve, 2000); // simulate slow response
@@ -52,7 +58,7 @@ class EmployeeService {
         return new Promise(promiseFunc);
     }
 
-    uploadJson(json) {
+    parseData(json) {
 
          try {
             var parsed = JSON.parse(json);        
@@ -61,14 +67,24 @@ class EmployeeService {
                 parsed = [parsed];     
             }
 
+             var employees =  parsed.map(this.createEmployee); 
+        
+             this.setEmployees(employees);
+       
+             return employees;
+
         } catch(e) {
              throw new Error('Can not parse data.');
         }
-        var employees = privateMethods.convertToTypedEmployees.call(this, parsed);
-        
-       this.setEmployees(employees);
-       
-       return employees;
+    }
+    
+    createEmployee(item) {
+         switch(item.type) {
+            case "FixedSalaryEmployee":
+                return new FixedSalaryEmployee(item.id, item.name, item.salary);
+            case 'PerHourEmployee':
+                return new PerHourEmployee(item.id, item.name, item.salary);
+        }
     }
 
     sort() {

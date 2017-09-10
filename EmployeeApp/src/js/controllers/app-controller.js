@@ -26,7 +26,7 @@ class AppController {
         var json = $('#json-input').val();
 
         try {
-            var employees = this.employeeService.uploadJson(json);
+            var employees = this.employeeService.parseData(json);
         } catch (error) {
             privateMethods.showError.call(this, error);
             return;
