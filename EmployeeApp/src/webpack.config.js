@@ -34,6 +34,10 @@ module.exports = {
         use: [
           'raw-loader'
         ]
+      },
+      {
+        test: /employees.json/,
+        loader: "move-file-loader?name=app_data/employees.json"
       }
     ]
   },

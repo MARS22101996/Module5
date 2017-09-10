@@ -1,0 +1,98 @@
+[
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 2163,
+        "name": "Meghan",
+        "id": "53dba96853f4d99418dbd975"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 998,
+        "name": "Suarez",
+        "id": "53dba96822a91b766a063dcf"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 1632,
+        "name": "Bishop",
+        "id": "53dba96843b8e01e426c8219"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 962,
+        "name": "Daniel",
+        "id": "53dba968e175027ee09006a7"
+    },
+    {
+        "type": "PerHourEmployee",
+        "salary": 10,
+        "name": "Penny",
+        "id": "53dba968ecda8fd1822c98bf"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 2995,
+        "name": "Gamble",
+        "id": "53dba96844e36c2aed9c0d02"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 2995,
+        "name": "Acosta",
+        "id": "53dba968292c7c19a8bc8200"
+    },
+    {
+        "type": "PerHourEmployee",
+        "salary": 16,
+        "name": "Karla",
+        "id": "53dba96870f60dee14986ff8"
+    },
+    {
+        "type": "PerHourEmployee",
+        "salary": 4,
+        "name": "Mcfarland",
+        "id": "53dba968a3caf9ac0c8c4c68"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 1230,
+        "name": "Cheryl",
+        "id": "53dba96891fd185f8592dab6"
+    },
+    {
+        "type": "PerHourEmployee",
+        "salary": 16,
+        "name": "Whitley",
+        "id": "53dba968de1294d32f6f1861"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 1799,
+        "name": "Isabelle",
+        "id": "53dba968b12fc490c38e2ca0"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 2330,
+        "name": "Moss",
+        "id": "53dba968348ce77356acf1f2"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 758,
+        "name": "Jeannette",
+        "id": "53dba968ece0ef8beabe0b65"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 866,
+        "name": "Jeanine",
+        "id": "53dba968247c838cc43d4fc3"
+    },
+    {
+        "type": "FixedSalaryEmployee",
+        "salary": 1165,
+        "name": "Marina",
+        "id": "53dba9687a720cb98c567950"
+    }
+]

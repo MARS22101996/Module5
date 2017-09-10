@@ -31,17 +31,24 @@
 			<span class="desc on">Load by inserted data</span>
 			<span class="desc off">Load by AJAX</span>
 		</form>
-		    <p hidden>Please, press button to load the data.</p>
-            <p>
-                Please, insert data in the field then press button.
-                <span class="annotate"><sup>*</sup> The data must be in the JSON format.</span>
-			</p>
-		<!-- Form for data -->
-		<form class="form" action="/index/output">
-			<textarea id="json-input" rows="12"></textarea>
-		</form>		
-		<!-- Basic button-->
-		<div id="ajax-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></div>
+		<section id="input-section">
+            <!-- Ajax -->
+            <div id="ajax-input" hidden>
+                <p>Please, press button to load the data.</p>
+                <span id="ajax-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></span>
+            </div>
+            <!--Textarea-->
+            <div id="text-input">
+                <p>
+                    Please, insert data in the field then press button.
+                    <span class="annotate"><sup>*</sup> The data must be in the JSON format.</span>
+                </p>
+                <form class="form">
+                    <textarea id="json-input" rows="12"></textarea>
+                </form>
+                <span id="json-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></span>
+            </div>
+        </section>
 		<!--Table-->
 		<div class="table-holder">
 			<div class="table-box">
