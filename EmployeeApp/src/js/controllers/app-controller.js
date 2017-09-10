@@ -41,7 +41,7 @@ class AppController {
 
         this.employeeService.uploadAjax(this.ajaxUrl)
             .then(function () {
-                var employees = this.employeeService.getEmployees();
+                var employees = this.employeeService.items();
                 privateMethods.displayResult.call(this, employees);
             }.bind(this))
             .catch(function (error) {

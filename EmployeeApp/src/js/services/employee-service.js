@@ -18,7 +18,7 @@ class EmployeeService {
             }
         };
 
-        this.getEmployees = function () {
+        this.items = function () {
             return this._employees; 
         };
     }
@@ -70,23 +70,28 @@ class EmployeeService {
     }
 
     getSorted() {
-        var employees = this.getEmployees();
+        //var employees = this.items();
+        var employees = this._employees.sort((x, y) => 
+            (y.getSalary()  - x.getSalary()) || 
+            (y.name.toLowerCase() < x.name.toLowerCase())
+        );
 
-        return employees.sort(function (a, b) {
-            if (a.getSalary() > b.getSalary()) {
-                return -1;
-            }
-            else if (a.getSalary() < b.getSalary()) {
-                return 1;
-            }
-            else {
-                return a.name > b.name;
-            }
-        });
+        return employees;
+        // return employees.sort(function (a, b) {
+        //     if (a.getSalary() > b.getSalary()) {
+        //         return -1;
+        //     }
+        //     else if (a.getSalary() < b.getSalary()) {
+        //         return 1;
+        //     }
+        //     else {
+        //         return a.name > b.name;
+        //     }
+        // });
     }
 
     getFirstNames(n) {
-        var employees = this.getEmployees().slice(0, n);
+        var employees = this.items().slice(0, n);
         var names = employees.map(function (employee) {
             return employee.name;
         });
@@ -95,7 +100,7 @@ class EmployeeService {
     }
 
     getLastIds(n) {
-        var employees = this.getEmployees();
+        var employees = this.items();
         var slice;
         if(n > employees.length){
             slice = employees;
