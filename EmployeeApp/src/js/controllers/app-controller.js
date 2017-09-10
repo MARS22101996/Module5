@@ -33,7 +33,7 @@ class AppController {
         }
 
         privateMethods.hideFilterResult.call(this);
-        privateMethods.displayResult.call(this, employees);
+        this.displayResult(employees);
     }
 
     getFromAjax() {
@@ -44,7 +44,7 @@ class AppController {
         this.employeeService.uploadAjax(this.ajaxUrl)
             .then(function () {
                 var employees = this.employeeService.items();
-                privateMethods.displayResult.call(this, employees);
+                this.displayResult(employees);
             }.bind(this))
             .catch(function (error) {
                 privateMethods.showError.call(this, error);
@@ -54,7 +54,7 @@ class AppController {
     sort() {
         privateMethods.hideError.call(this);
         privateMethods.hideFilterResult.call(this);
-        privateMethods.displayResult.call(this, this.employeeService.sort());
+        this.displayResult( this.employeeService.sort());
     }
 
     getFirstNames() {
@@ -69,7 +69,7 @@ class AppController {
             result = this.employeeService.getFirstNames(n);
         }
 
-        privateMethods.displayFilterResult.call(this, result);
+        this.displayFilterResult(result);
     }
 
     getLastIds() {
@@ -84,7 +84,7 @@ class AppController {
             result = this.employeeService.getLastIds(n);
         }
 
-        privateMethods.displayFilterResult.call(this, result);
+        this.displayFilterResult(result);
     }
 
     changeInput() {
@@ -118,30 +118,58 @@ class AppController {
 
             count.val(this.counterCalculator.value);
     }
-}
 
-const privateMethods = {
-    displayResult(employees) {
+    createTag(tag, innerText) {
+        if(Array.isArray(innerText)){
+            innerText = innerText.join('');
+        }
+
+        return `<${tag}>${innerText}</${tag}>`;
+    }
+
+     displayResult(employees) {
         $('.table-holder').show();
         $('.controlls').show();
         $('.loader-section').hide();
 
         var tableBody = $('#employee-table');
         tableBody.empty();
-
-        employees.forEach(function (employee) {
+				var header ="<tr><th>#</th><th>Name</th><th>Average monthly salary</th></tr>";
+       tableBody.append(header);
+                employees.forEach(function (employee) {
             var raw = $('<tr>');
-            var idCol = $('<td>').text(employee.id);
-            var nameCol = $('<td>').text(employee.name);
-            var salaryCol = $('<td>').text(employee.salary);
+            var id = this.createTag('td', employee.id);
+            var name = this.createTag('td', employee.name);
+            var salary = this.createTag('td', employee.salary);
     
-            raw.append(idCol);
-            raw.append(nameCol);
-            raw.append(salaryCol);
+            raw.append(id);
+            raw.append(name);
+            raw.append(salary);
 
             tableBody.append(raw);
         }, this);
-    },
+    }
+
+    displayFilterResult(array) {
+      $('.list-holder').show();
+
+        var list = $('#filter-result-list');
+        list.empty();
+        
+        var count = 1;
+        array.forEach(function(element) {
+            var li = $('<li>');
+            var indexSpan = $('<span>').text(count);
+            li.append(indexSpan);
+            li.text(element);
+            list.append(li);
+            
+            count++;
+        }, this);
+    }
+}
+
+const privateMethods = {
     hideResult() {
         $('.table-holder').hide();
         $('.controlls').hide();
@@ -158,23 +186,6 @@ const privateMethods = {
         $('.table-holder').hide();
         $('.controlls').hide();
         $('.loader-section').show();
-    },
-    displayFilterResult(array) {
-        $('.list-holder').show();
-
-        var list = $('#filter-result-list');
-        list.empty();
-        
-        var count = 1;
-        array.forEach(function(element) {
-            var li = $('<li>');
-            var indexSpan = $('<span>').text(count);
-            li.append(indexSpan);
-            li.text(element);
-            list.append(li);
-            
-            count++;
-        }, this);
     },
     hideFilterResult() {
         $('.list-holder').hide();
