@@ -70,50 +70,24 @@ class EmployeeService {
     }
 
     getSorted() {
-        //var employees = this.items();
+
         var employees = this._employees.sort((x, y) => 
             (y.getSalary()  - x.getSalary()) || 
             (y.name.toLowerCase() < x.name.toLowerCase())
         );
 
         return employees;
-        // return employees.sort(function (a, b) {
-        //     if (a.getSalary() > b.getSalary()) {
-        //         return -1;
-        //     }
-        //     else if (a.getSalary() < b.getSalary()) {
-        //         return 1;
-        //     }
-        //     else {
-        //         return a.name > b.name;
-        //     }
-        // });
     }
 
-    getFirstNames(n) {
-        var employees = this.items().slice(0, n);
-        var names = employees.map(function (employee) {
-            return employee.name;
-        });
-
-        return names;
+    getFirstNames(count) {      
+        return this._employees.slice(0, count).map(x => x.name);
     }
 
-    getLastIds(n) {
-        var employees = this.items();
-        var slice;
-        if(n > employees.length){
-            slice = employees;
-        }
-        else{
-            slice = employees.slice(employees.length - n, employees.length);
-        }
-        
-        var ids = slice.map(function (employee) {
-            return employee.id;
-        });
+    getLastIds(count) {
+        let end = this._employees.length;
+        let start = end - count;
 
-        return ids;
+        return this._employees.slice(start, end).map(x => x.id);
     }
 }
 
