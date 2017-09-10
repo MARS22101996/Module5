@@ -38,7 +38,11 @@ module.exports = {
       {
         test: /employees.json/,
         loader: "move-file-loader?name=app_data/employees.json"
-      }
+      },
+      { 
+        test: /\.js$/, 
+        exclude: /node_modules/, 
+        loader: "babel-loader" } 
     ]
   },
   plugins: [

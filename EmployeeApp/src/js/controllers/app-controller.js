@@ -105,8 +105,8 @@ class AppController {
 
 const privateMethods = {
     displayResult(employees) {
-        $('.table-section').show();
-        $('.data-manipulation-section').show();
+        $('.table-holder').show();
+        $('.controlls').show();
         $('.loader-section').hide();
 
         var tableBody = $('#employee-table-body');
@@ -126,8 +126,8 @@ const privateMethods = {
         }, this);
     },
     hideResult() {
-        $('.table-section').hide();
-        $('.data-manipulation-section').hide();
+        $('.table-holder').hide();
+        $('.controlls').hide();
     },
     showError(error) {
         console.log(error);
@@ -138,8 +138,8 @@ const privateMethods = {
         $('.error-box').hide();
     },
     showLoader() {
-        $('.table-section').hide();
-        $('.data-manipulation-section').hide();
+        $('.table-holder').hide();
+        $('.controlls').hide();
         $('.loader-section').show();
     },
     displayFilterResult(array) {

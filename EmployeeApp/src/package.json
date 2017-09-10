@@ -25,7 +25,8 @@
     "raw-loader": "^0.5.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "babel-loader": "7.1.2"
   },
   "scripts": {
     "start": "npm install && gulp detect && gulp compile && webpack && start webpack-dev-server --open && gulp watch",

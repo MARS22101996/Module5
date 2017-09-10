@@ -309,3 +309,25 @@ hr {
 p{
 	color: #A8B8B9;
 }
+
+// Loader
+
+.loader-section {
+    height: 200px;
+
+    .loader {
+        text-align: center;
+        margin-top: 80px;
+
+        .loader-img {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            background: url('../images/ajax-loader.gif') no-repeat;
+            display: block;
+            width: image-width('../images/ajax-loader.gif');
+            height: image-height('../images/ajax-loader.gif');
+            padding-left: image-width('../images/ajax-loader.gif');
+            margin-left: calc(~'50% - 16px');
+        }
+    }
+}

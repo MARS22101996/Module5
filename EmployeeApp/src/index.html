@@ -6,10 +6,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>Your Website</title>
 	<script src="bundle.js"></script>
+	<script src="./scripts/app.js"></script>
 </head>
 
 <body>
-<div class="error-box" style="display: block;">
+<div class="error-box" style="display: none;">
     <span>Invalid input. Please, insert valid data in the field.</span>
     <span class="btn-close"><i class="fa fa-times"></i></span>
 </div>
@@ -48,9 +49,14 @@
                 </form>
                 <span id="json-btn" class="btn btn-load">Load data <i class="fa fa-spinner"></i></span>
             </div>
+		</section>
+		<section class="loader-section" hidden>
+            <figure class="loader">
+                <img class="loader-img">
+            </figure>
         </section>
 		<!--Table-->
-		<div class="table-holder">
+		<div class="table-holder" hidden>
 			<div class="table-box">
 				<table id="employee-table" class="table">
 					<thead>
@@ -164,7 +170,7 @@
 		</div>
 
 		<footer>
-			<div class="controlls">
+			<div class="controlls" hidden>
 				<span class="btn btn-sort">Sort data</span>
 				<span class="btn btn-get-names">Get first 'n' names</span>
 				<span class="btn btn-get-ids">Get last 'n' ids</span>
@@ -177,8 +183,8 @@
 			</div>
 			<span class="annotate rt">* Please, enter quantity ("n" &#8593;) for data you want get.</span>
 			<!--List-->
-			<div class="list-holder">
-				<ul class="list">
+			<div class="list-holder" hidden>
+				<ul id="filter-result-list" class="list">
 
 					<li><span>1.</span> Mcfarland</li>
 
