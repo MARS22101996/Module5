@@ -24,13 +24,12 @@ class AppController {
         var json = $('#json-input').val();
 
         try {
-            this.employeeService.uploadJson(json);
+            var employees = this.employeeService.uploadJson(json);
         } catch (error) {
             privateMethods.showError.call(this, error);
             return;
         }
 
-        var employees = this.employeeService.getEmployees();
         privateMethods.hideFilterResult.call(this);
         privateMethods.displayResult.call(this, employees);
     }
@@ -109,7 +108,7 @@ const privateMethods = {
         $('.controlls').show();
         $('.loader-section').hide();
 
-        var tableBody = $('#employee-table-body');
+        var tableBody = $('#employee-table');
         tableBody.empty();
 
         employees.forEach(function (employee) {

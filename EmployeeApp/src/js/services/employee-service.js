@@ -54,8 +54,10 @@ class EmployeeService {
         var array = JSON.parse(json);
         privateMethods.validateEmployeesArray.call(this, array);
         var employees = privateMethods.convertToTypedEmployees.call(this, array);
-
-        this.setEmployees(employees);
+        
+       this.setEmployees(employees);
+       
+       return employees;
     }
 
     getSorted() {
