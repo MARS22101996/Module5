@@ -2,16 +2,18 @@
 import Employee from './../models/Employee.js';
 import FixedSalaryEmployee from './../models/FixedSalaryEmployee.js';
 import PerHourEmployee from './../models/PerHourEmployee.js';
+import EmployeesCollection from './../models/EmployeesCollection.js';
 import $ from './../libs/jquery.min.js';
 
 class EmployeeService {
     constructor() {
-         this._employees = []; 
+        
+          this._employees = new EmployeesCollection();
 
         this.setEmployees = function (employees) {
-            let isEmployees = privateMethods.isEmployees.call(this, employees);
+            let isEmployees = this.isEmployees.call(this, employees);
             if (isEmployees) {
-               this._employees = employees;
+               this._employees.load(employees);
             }
             else {
                 throw new Error('Error: setEmployees. Invalid type passed. Expected:  Employee[]');
@@ -19,7 +21,7 @@ class EmployeeService {
         };
 
         this.items = function () {
-            return this._employees; 
+            return this._employees.items; 
         };
     }
 
@@ -71,27 +73,19 @@ class EmployeeService {
 
     sort() {
 
-        var employees = this._employees.sort((x, y) => 
-            (y.getSalary()  - x.getSalary()) || 
-            (y.name.toLowerCase() < x.name.toLowerCase())
-        );
-
-        return employees;
+        return this._employees.sort();
     }
 
-    getFirstNames(count) {      
-        return this._employees.slice(0, count).map(x => x.name);
+    getFirstNames(count) {  
+
+        return this._employees.getFirstNames(count);
     }
 
     getLastIds(count) {
-        let end = this._employees.length;
-        let start = end - count;
 
-        return this._employees.slice(start, end).map(x => x.id);
+        return this._employees.getLastIds(count);
     }
-}
 
-const privateMethods = {
     isEmployees(employees) {
         var isEmployees = true;
 
@@ -107,7 +101,10 @@ const privateMethods = {
         }
 
         return isEmployees;
-    },
+    }
+}
+
+const privateMethods = {
     convertToTypedEmployees(array){
         var employees = [];
         array.forEach(function (item, index, array) {
