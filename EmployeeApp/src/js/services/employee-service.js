@@ -69,7 +69,7 @@ class EmployeeService {
        return employees;
     }
 
-    getSorted() {
+    sort() {
 
         var employees = this._employees.sort((x, y) => 
             (y.getSalary()  - x.getSalary()) || 

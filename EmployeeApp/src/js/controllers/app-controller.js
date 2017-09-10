@@ -1,11 +1,13 @@
 'use strict';
 import EmployeeService from './../services/employee-service.js';
+import Counter from './../models/Counter.js';
 import $ from './../libs/jquery.min.js';
 
 class AppController {
     constructor() {
         this.ajaxUrl = 'http://localhost:8000/app_data/employees.json';
         this.employeeService = new EmployeeService();
+        this.counterCalculator = new Counter(0);
 
         $('#json-btn').click(this.getFromInput.bind(this));
         $('#ajax-btn').click(this.getFromAjax.bind(this));
@@ -14,8 +16,8 @@ class AppController {
         $('.btn-get-ids').click(this.getLastIds.bind(this));
         $('#switch').change(this.changeInput.bind(this));
         $('.btn-close').click(privateMethods.hideError.bind(this));
-        $('.btn-up').click(privateMethods.incrementCount.bind(this));
-        $('.btn-down').click(privateMethods.decrementCount.bind(this));
+        $('.btn-up').click(this.incrementValue.bind(this));
+        $('.btn-down').click(this.decrementValue.bind(this));
     }
 
     getFromInput() {
@@ -52,7 +54,7 @@ class AppController {
     sort() {
         privateMethods.hideError.call(this);
         privateMethods.hideFilterResult.call(this);
-        privateMethods.displayResult.call(this, this.employeeService.getSorted());
+        privateMethods.displayResult.call(this, this.employeeService.sort());
     }
 
     getFirstNames() {
@@ -99,6 +101,22 @@ class AppController {
             $('#ajax-input').hide();
             $('#text-input').show();
         }
+    }
+
+        incrementValue() {
+        var count = $('#count-input');
+       this.counterCalculator.value=count.val();
+        this.counterCalculator.incrementValue();
+
+            count.val(this.counterCalculator.value);
+    }
+
+        decrementValue() {
+       var count = $('#count-input');
+       this.counterCalculator.value=count.val();
+        this.counterCalculator.decrement();
+
+            count.val(this.counterCalculator.value);
     }
 }
 
@@ -160,18 +178,6 @@ const privateMethods = {
     },
     hideFilterResult() {
         $('.list-holder').hide();
-    },
-    incrementCount() {
-        var count = $('#count-input');
-        if (count.val() < 1000000) {
-            count.val(+count.val() + 1);
-        }
-    },
-    decrementCount() {
-        var count = $('#count-input');
-        if (count.val() > 0) {
-            count.val(+count.val() - 1);
-        }
     }
 };
 
