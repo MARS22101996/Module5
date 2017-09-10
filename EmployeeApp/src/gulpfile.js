@@ -94,9 +94,9 @@ gulp.task('js-lint-watcher', ['js-lint'], function() {
 // Js
 gulp.task('js', () => {
     return gulp.src('./js/**/*.js')
-        .pipe(babel({
-            presets: ['env', 'babili']
-        }))
+        // .pipe(babel({
+        //     presets: ['env', 'babili']
+        // }))
         .pipe(gulp.dest('../dist/js'))
 });
 

@@ -51,9 +51,18 @@ class EmployeeService {
     }
 
     uploadJson(json) {
-        var array = JSON.parse(json);
-        privateMethods.validateEmployeesArray.call(this, array);
-        var employees = privateMethods.convertToTypedEmployees.call(this, array);
+
+         try {
+            var parsed = JSON.parse(json);        
+        
+            if(!Array.isArray(parsed)) {
+                parsed = [parsed];     
+            }
+
+        } catch(e) {
+            return [];
+        }
+        var employees = privateMethods.convertToTypedEmployees.call(this, parsed);
         
        this.setEmployees(employees);
        
@@ -119,20 +128,6 @@ const privateMethods = {
         }
 
         return isEmployees;
-    },
-    validateEmployeesArray(array) {
-
-        if (!Array.isArray(array)) {
-            throw new Error('Json should be an array of employees.');
-        }
-
-        array.forEach(function (item, index, array) {
-            if (item.id == undefined || item.type == undefined || item.name == undefined || item.salary == undefined) {
-                throw new Error(`Invalid Json format. 
-                    Json should be an array of employees. 
-                    Each employee must have defined "id", "type", "name" and "salary" properties`);
-            }
-        });
     },
     convertToTypedEmployees(array){
         var employees = [];
